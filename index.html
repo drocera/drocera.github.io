@@ -12,32 +12,10 @@
   <link rel="icon" type="image/png" href="files/favicon.png">
   <link href="files/main.css" rel="stylesheet">
   <link href="https://fonts.gstatic.com/" rel="preconnect">
-  <link href="files/css2.css" rel="stylesheet">
+  <link href="files/fontlist.css" rel="stylesheet">
   <link rel="stylesheet" id="appointment-font-awesome-min-css" href="files/font-awesome-4.7.0/css/font-awesome.min.css" type="text/css" media="all">
 
   <script>localStorage.getItem('darkMode') === 'true' && document.documentElement.setAttribute('data-mode', 'dark');</script>
-  <script type="text/x-mathjax-config">MathJax.Hub.Register.StartupHook("NativeMML Jax Ready", function () {MathJax.OutputJax.NativeMML.Augment({preTranslate: function (state) {
-    var scripts = state.jax[this.id];
-    for (var i = 0; i < scripts.length; i++) {
-      var script = scripts[i]; if (!script.parentNode) continue;
-      // Remove any existing output
-      var prev = script.previousSibling;
-      if (prev && prev.className === "MathJax_MathML")
-        prev.parentNode.removeChild(prev);
-      // Add the MathJax span
-      var jax = script.MathJax.elementJax; if (!jax) continue;
-      var math = jax.root; jax.NativeMML = {};
-      var type = (math.Get("display") === "block" ? "div" : "span");
-      var span = MathJax.HTML.Element(type,{
-        className: "MathJax_MathML", id:jax.inputID+"-Frame"
-      },[["span",{
-        className:"MathJax_MathContainer", isMathJax: true, jaxID:this.id,
-      },[["span",{isMathJax:true}]]
-      ]]);
-      script.parentNode.insertBefore(span,script);
-    }
-    }});MathJax.OutputJax.NativeMML.ffTableWidthBug = false;MathJax.OutputJax.NativeMML.forceReflow = false;MathJax.OutputJax.NativeMML.widthBug = false;MathJax.OutputJax.NativeMML.spaceWidthBug = false;MathJax.OutputJax.NativeMML.mtdWidthBug = false;});MathJax.Hub.Register.StartupHook("End Extensions", function () {if (MathJax.Extension.mml2jax) {  for (var i=0,m=MathJax.Hub.preProcessors.hooks.length; i < m; i++) {    if (MathJax.Hub.preProcessors.hooks[i].hook ===        MathJax.Extension.mml2jax.PreProcess)      { MathJax.Hub.preProcessors.hooks.splice(i,1); i--; m--; }  }}});
-  </script>
 </head>
 
 <body class="page page-home has-fixed-header">
@@ -467,8 +445,6 @@
         <div class="grid-header grid-header-align-center">
           <div class="info-content">
             <h2 style="text-align: center;">On som</h2>
-            <!-- <p style="text-align: center; width: 100%">C/ Fogars, 15 (xamfrà C/ Campins)<br>
-            08470 Sant Celoni</p> -->
           </div>
         </div>
 
@@ -731,7 +707,6 @@
     </div>
   </div>
   
-  <script type="text/javascript" src="files/scripts.js"></script>
   <script type="text/javascript" src="files/header.js"></script>
   <script type="text/javascript" src="files/hamburger.js"></script>
   <script type="text/javascript" src="files/darkModeSwitch.js"></script>
