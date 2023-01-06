@@ -24,7 +24,7 @@ function toggleDarkMode() {
   }
 }
 
-function initDarkMode() {
+function initScreenModeSwitch() {
   let darkMode = localStorage.getItem("darkMode");
   if (darkMode === "true") {
     darkModeSwitches.forEach((item) => item.classList.add("dark"));
@@ -34,10 +34,16 @@ function initDarkMode() {
     darkModeSwitches.forEach((item) => item.classList.add("light"));
     return;
   }
-  if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-    document.documentElement.setAttribute("data-mode", "dark");
-    darkModeSwitches.forEach((item) => item.classList.add("dark"));
+  if (window.matchMedia) {
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      document.documentElement.setAttribute("data-mode", "dark");
+      darkModeSwitches.forEach((item) => item.classList.add("dark"));
+    }
+    else {
+      document.documentElement.setAttribute("data-mode", "light");
+      darkModeSwitches.forEach((item) => item.classList.add("light"));
+    }
   }
 }
 
-initDarkMode();
+initScreenModeSwitch();
