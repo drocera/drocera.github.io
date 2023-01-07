@@ -7,6 +7,7 @@
     var menuContainerCenter = document.querySelector(".menu-main-mobile-center");
     var closeIcon = document.querySelector("#close-overlay");
     var hamburgerIcons = document.querySelectorAll(".hamburger");
+    var menuItems = document.querySelectorAll(".menu-item"); // added line Chat GPT
 
     function toggleMobileMenu(e) {
       menuContainer.classList.toggle("open");
@@ -16,6 +17,7 @@
     }
 
     menuTrigger.addEventListener("click", (e) => toggleMobileMenu(e));
+    menuItems.forEach(item => item.addEventListener("click", (e) => toggleMobileMenu(e))); // added line Chat GPT
 
     function closeOverlay(e) {
       if (e.target === e.currentTarget) {
