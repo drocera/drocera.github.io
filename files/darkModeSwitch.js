@@ -24,7 +24,7 @@ function toggleDarkMode() {
   }
 }
 
-function initScreenModeSwitch() {
+/*function initScreenModeSwitch() {
   let darkMode = localStorage.getItem("darkMode");
   if (darkMode === "true") {
     darkModeSwitches.forEach((item) => item.classList.add("dark"));
@@ -42,6 +42,24 @@ function initScreenModeSwitch() {
     else {
       document.documentElement.setAttribute("data-mode", "light");
       darkModeSwitches.forEach((item) => item.classList.add("light"));
+    }
+  }
+}*/
+
+/* Chat GPT suggestion:*/
+function initScreenModeSwitch() {
+  let darkMode = localStorage.getItem("darkMode");
+  /*Chat GPT debugging:*/
+  const parentElement = document.querySelector('#debugRef');
+  const p = document.createElement('p');
+  p.innerHTML = `darkMode: ${localStorage.getItem('darkMode')}`;
+  parentElement.prepend(p);
+  /**/
+  if (darkMode === null) {
+    if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      localStorage.setItem("darkMode", true);
+    } else {
+      localStorage.setItem("darkMode", false);
     }
   }
 }
