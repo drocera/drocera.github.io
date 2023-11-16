@@ -49,12 +49,12 @@ function toggleDarkMode() {
 /* Chat GPT suggestion:*/
 function initScreenModeSwitch() {
   let darkMode = localStorage.getItem("darkMode");
-  /*Chat GPT debugging:*/
+  /*Chat GPT debugging:
   const parentElement = document.querySelector('#debugRef');
   const p = document.createElement('p');
   p.innerHTML = `darkMode: ${localStorage.getItem('darkMode')}`;
   parentElement.prepend(p);
-  /**/
+  */
   if (darkMode === null) {
     if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
       localStorage.setItem("darkMode", true);
