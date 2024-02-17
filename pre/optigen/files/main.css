@@ -1993,15 +1993,15 @@ html[data-mode="dark"] .logo-mobile-invert { display: flex; }
 
 .menu-main ul li:last-of-type { margin: 0; }
 
-.menu-main ul li > a { height: inherit; font-weight: 400; text-transform: capitalize; display: block; padding: 10px 10px 10px 10px; text-decoration: none; color: inherit; }
+.menu-main ul li > a { height: inherit; font-weight: bold; text-transform: capitalize; display: block; padding: 10px 10px 10px 10px; text-decoration: none; color: inherit; }
 
-.menu-main ul li > a:hover { text-decoration: underline; }
+.menu-main ul li > a:hover { text-decoration: underline; opacity: 0.8; }
 
 @media (min-width: 992px) { .menu-main ul li > a { padding: 10px 13px 10px 13px; } }
 
 .menu-main ul li > a i { font-size: 14px; }
 
-.menu-main ul li.active a { font-weight: bold; }
+.menu-main ul li.active a { text-decoration: underline; }
 
 .menu-item-dropdown { position: relative; }
 
