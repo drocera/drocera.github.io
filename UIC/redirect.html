@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Redirecting to video...</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+</head>
+<body>
+  <p id="msg">Redirecting you to the video…</p>
+  <script>
+    (async function() {
+      const params = new URLSearchParams(window.location.search);
+      const student = params.get('student') || '';
+      const video = params.get('video') || '';
+      if (!video) {
+        document.getElementById('msg').textContent = 'Missing video ID in the URL.';
+        return;
+      }
+
+      // Log click (fire-and-forget)
+      const loggerUrl = 'https://script.google.com/macros/s/AKfycbwpACyS0zr9kcSbef17kRt1d5-fu7oI_4RjvKKj5NTk7OS6fNYL5Yln6CQXy3gK0i8X/exec'; // replace with your deployed logger URL
+      fetch(`${loggerUrl}?student=${encodeURIComponent(student)}&video=${encodeURIComponent(video)}`)
+        .catch(() => { /* ignore logging errors */ })
+        .finally(() => {
+          // Then redirect top-level
+          window.location.replace('https://youtu.be/' + encodeURIComponent(video));
+        });
+
+      // Safety: if fetch hangs, still redirect after 1s
+      setTimeout(() => {
+        window.location.replace('https://youtu.be/' + encodeURIComponent(video));
+      }, 1000);
+    })();
+  </script>
+</body>
+</html>
