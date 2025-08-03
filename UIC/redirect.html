@@ -18,7 +18,7 @@
       }
 
       // Log click (fire-and-forget)
-      const loggerUrl = 'https://script.google.com/macros/s/AKfycbzK82zflHux4AjKC-LQbTdz6TOwtRnlOEV4Bj58NeDb1XZI3KaLaxh3EEbH4kmOlg7_TQ/exec';
+      const loggerUrl = 'https://script.google.com/macros/s/AKfycbwMowDDuUEbpxuZKzi5NI95AFxNUFPc9tLQgMaAeuV4704vuysjBK0wVdXEDERhmr4scg/exec';
       fetch(`${loggerUrl}?student=${encodeURIComponent(student)}&video=${encodeURIComponent(video)}`)
         .catch(() => { /* ignore logging errors */ })
         .finally(() => {
