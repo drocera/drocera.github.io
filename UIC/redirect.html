@@ -10,7 +10,8 @@
   <script>
     (async function() {
       const params = new URLSearchParams(window.location.search);
-      const student = params.get('student') || '';
+      const studentID = params.get('studentID') || '';
+      const lname = params.get('lname') || '';
       const video = params.get('video') || '';
       if (!video) {
         document.getElementById('msg').textContent = 'Missing video ID in the URL.';
@@ -19,7 +20,7 @@
 
       // Log click (fire-and-forget)
       const loggerUrl = 'https://script.google.com/macros/s/AKfycbwMowDDuUEbpxuZKzi5NI95AFxNUFPc9tLQgMaAeuV4704vuysjBK0wVdXEDERhmr4scg/exec';
-      fetch(`${loggerUrl}?student=${encodeURIComponent(student)}&video=${encodeURIComponent(video)}`)
+      fetch(`${loggerUrl}?student=${encodeURIComponent(studentID)}&video=${encodeURIComponent(video)}&lname=${encodeURIComponent(lname)}`)
         .catch(() => { /* ignore logging errors */ })
         .finally(() => {
           // Then redirect top-level
