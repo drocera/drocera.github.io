@@ -27,10 +27,10 @@
           window.location.replace('https://youtu.be/' + encodeURIComponent(video));
         });
 
-      // Safety: if fetch hangs, still redirect after 5s
+      // Safety: if fetch hangs, still redirect after 3s
       setTimeout(() => {
         window.location.replace('https://youtu.be/' + encodeURIComponent(video));
-      }, 5000);
+      }, 3000);
     })();
   </script>
 </body>
