@@ -7,30 +7,40 @@
 </head>
 <body>
   <p id="msg">Loading video…</p>
+  <p>If you are not automatically redirected in 5 seconds, please click <a id="fallbackLink" href="#" target="_top" rel="noopener">here</a>.</p>
+  <noscript>
+    <p><strong>It seems that JavaScript in your browser is disabled.</strong> Copy the value after <code>video=</code> in the URL and open <code>https://youtu.be/VIDEO_ID</code> manually.</p>
+    <p>You may contact the professor for further assistance.</p>
+  </noscript>
   <script>
     (async function() {
       const params = new URLSearchParams(window.location.search);
       const student = params.get('student') || '';
       const email = params.get('email') || '';
       const video = params.get('video') || '';
+      const loggerUrl = 'https://script.google.com/macros/s/AKfycbwMowDDuUEbpxuZKzi5NI95AFxNUFPc9tLQgMaAeuV4704vuysjBK0wVdXEDERhmr4scg/exec';
+
       if (!video) {
         document.getElementById('msg').textContent = 'Missing video ID in the URL.';
         return;
       }
 
+      const yt = 'https://youtu.be/' + encodeURIComponent(video);
+      const a = document.getElementById('fallbackLink');
+      a.href = yt;
+
       // Log click (fire-and-forget)
-      const loggerUrl = 'https://script.google.com/macros/s/AKfycbwMowDDuUEbpxuZKzi5NI95AFxNUFPc9tLQgMaAeuV4704vuysjBK0wVdXEDERhmr4scg/exec';
       fetch(`${loggerUrl}?video=${encodeURIComponent(video)}&student=${encodeURIComponent(student)}&email=${encodeURIComponent(email)}`)
         .catch(() => { /* ignore logging errors */ })
         .finally(() => {
           // Then redirect top-level
-          window.location.replace('https://youtu.be/' + encodeURIComponent(video));
+          window.location.replace(yt);
         });
 
-      // Safety: if fetch hangs, still redirect after 3s
+      // Safety: if fetch hangs, still redirect after 4s
       setTimeout(() => {
-        window.location.replace('https://youtu.be/' + encodeURIComponent(video));
-      }, 3000);
+        window.location.replace(yt);
+      }, 4000);
     })();
   </script>
 </body>
