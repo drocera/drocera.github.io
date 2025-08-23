@@ -11,7 +11,7 @@
     (async function() {
       const params = new URLSearchParams(window.location.search);
       const studentID = params.get('studentID') || '';
-      const lname = params.get('lname') || '';
+      const lname = params.get('email') || '';
       const video = params.get('video') || '';
       if (!video) {
         document.getElementById('msg').textContent = 'Missing video ID in the URL.';
@@ -20,14 +20,14 @@
 
       // Log click (fire-and-forget)
       const loggerUrl = 'https://script.google.com/macros/s/AKfycbwMowDDuUEbpxuZKzi5NI95AFxNUFPc9tLQgMaAeuV4704vuysjBK0wVdXEDERhmr4scg/exec';
-      fetch(`${loggerUrl}?video=${encodeURIComponent(video)}&student=${encodeURIComponent(studentID)}&lname=${encodeURIComponent(lname)}`)
+      fetch(`${loggerUrl}?video=${encodeURIComponent(video)}&student=${encodeURIComponent(studentID)}&email=${encodeURIComponent(email)}`)
         .catch(() => { /* ignore logging errors */ })
         .finally(() => {
           // Then redirect top-level
           window.location.replace('https://youtu.be/' + encodeURIComponent(video));
         });
 
-      // Safety: if fetch hangs, still redirect after 1s
+      // Safety: if fetch hangs, still redirect after 5s
       setTimeout(() => {
         window.location.replace('https://youtu.be/' + encodeURIComponent(video));
       }, 5000);
