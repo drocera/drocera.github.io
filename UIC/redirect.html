@@ -20,7 +20,7 @@
 
       // Log click (fire-and-forget)
       const loggerUrl = 'https://script.google.com/macros/s/AKfycbwMowDDuUEbpxuZKzi5NI95AFxNUFPc9tLQgMaAeuV4704vuysjBK0wVdXEDERhmr4scg/exec';
-      fetch(`${loggerUrl}?student=${encodeURIComponent(studentID)}&video=${encodeURIComponent(video)}&lname=${encodeURIComponent(lname)}`)
+      fetch(`${loggerUrl}?video=${encodeURIComponent(video)}&student=${encodeURIComponent(studentID)}&lname=${encodeURIComponent(lname)}`)
         .catch(() => { /* ignore logging errors */ })
         .finally(() => {
           // Then redirect top-level
