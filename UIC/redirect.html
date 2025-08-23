@@ -11,7 +11,7 @@
     (async function() {
       const params = new URLSearchParams(window.location.search);
       const student = params.get('student') || '';
-      const lname = params.get('email') || '';
+      const email = params.get('email') || '';
       const video = params.get('video') || '';
       if (!video) {
         document.getElementById('msg').textContent = 'Missing video ID in the URL.';
